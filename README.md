@@ -1,1 +1,1 @@
-# poke_dapp_2
+# PokéDapp 2.0
