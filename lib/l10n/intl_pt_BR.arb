@@ -1,3 +1,6 @@
 {
-  "@@locale": "pt_BR"
+  "@@locale": "pt_BR",
+  "appTitle": "PokéDapp",
+  "bottomNavigationPokemonItem": "Pokémon",
+  "bottomNavigationPokedexItem": "Pokédex"
 }

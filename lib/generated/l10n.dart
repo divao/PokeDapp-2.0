@@ -49,6 +49,36 @@ class S {
   static S? maybeOf(BuildContext context) {
     return Localizations.of<S>(context, S);
   }
+
+  /// `PokéDapp`
+  String get appTitle {
+    return Intl.message(
+      'PokéDapp',
+      name: 'appTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokémon`
+  String get bottomNavigationPokemonItem {
+    return Intl.message(
+      'Pokémon',
+      name: 'bottomNavigationPokemonItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Pokédex`
+  String get bottomNavigationPokedexItem {
+    return Intl.message(
+      'Pokédex',
+      name: 'bottomNavigationPokedexItem',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
