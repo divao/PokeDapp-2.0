@@ -34,8 +34,13 @@ class _PokemonListPageState extends ConsumerState<PokemonListPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(ref.s.appTitle),
+        title: Text(
+          ref.s.appTitle,
+          style: ref.textStyles.appBarTitle,
+        ),
+        backgroundColor: ref.colors.primaryColor,
       ),
+      backgroundColor: ref.colors.surfaceColor,
       body: StreamBuilder<PokemonListState>(
           stream: _bloc.pokemonListStream,
           builder: (context, snapshot) {
@@ -49,7 +54,8 @@ class _PokemonListPageState extends ConsumerState<PokemonListPage> {
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 20, horizontal: 10),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 10),
                     itemCount: pokemonList.length,
                     itemBuilder: (context, index) => PokemonSummaryItem(
                       pokemonSummary: pokemonList[index],

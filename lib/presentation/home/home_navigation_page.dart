@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 import 'package:poke_dapp_2/presentation/common/bottom_navigation/poke_dapp_navbar_item.dart';
@@ -29,19 +30,18 @@ class _HomeNavigationPageState extends ConsumerState<HomeNavigationPage> {
   GlobalKey<NavigatorState> get _pokedexNavigatorKey =>
       widget.pokedexNavigatorKey;
 
-  // TODO: Trocar os ícones
   @override
   Widget build(BuildContext context) {
     return PokeDappNavBarScaffold(
       navigationShell: _navigationShell,
       navigationBarItems: [
         PokeDappNavBarItem(
-          icon: Icons.adb,
+          svgIcon: ref.assets.pokeballIcon,
           title: s.bottomNavigationPokemonItem,
           navigatorKey: _pokemonNavigatorKey,
         ),
         PokeDappNavBarItem(
-          icon: Icons.phone_android,
+          svgIcon: ref.assets.pokedexIcon,
           title: s.bottomNavigationPokedexItem,
           navigatorKey: _pokedexNavigatorKey,
         ),

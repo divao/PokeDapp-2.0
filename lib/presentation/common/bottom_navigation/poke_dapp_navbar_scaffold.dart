@@ -32,7 +32,6 @@ class _PokeDappNavBarScaffoldState extends ConsumerState<PokeDappNavBarScaffold>
     );
   }
 
-  // TODO: Adicionar text styles
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -47,8 +46,8 @@ class _PokeDappNavBarScaffoldState extends ConsumerState<PokeDappNavBarScaffold>
         buttonWidth: 80,
         selectedIconColor: colors.bottomNavigationBarSelectedIconColor,
         unselectedIconColor: colors.bottomNavigationBarUnselectedIconColor,
-        // selectedTextStyle: textStyles.bottomNavigationSelectedText,
-        // unselectedTextStyle: textStyles.bottomNavigationUnselectedText,
+        selectedTextStyle: textStyles.bottomNavigationSelectedText,
+        unselectedTextStyle: textStyles.bottomNavigationUnselectedText,
       ),
       body: _navigationShell,
     );

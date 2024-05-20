@@ -33,7 +33,10 @@ class PokemonSummaryItem extends ConsumerWidget {
             ),
           ),
           const SizedBox(height: 8),
-          Text(pokemonSummary.name.capitalize()),
+          Text(
+            pokemonSummary.name.capitalize(),
+            style: ref.textStyles.pokemonSummaryName,
+          ),
         ],
       );
 }
