@@ -12,3 +12,4 @@ class LightAppTheme implements AppTheme {
 const _englishVermillion = Color(0xFFC84646);
 const _white = Color(0xFFFFFFFF);
 const _graniteGray = Color(0xFF666666);
+const _taupeGray = Color(0xFF888888);

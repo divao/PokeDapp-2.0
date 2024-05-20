@@ -6,3 +6,10 @@ int pokemonUrlToId(String url) {
 String pokemonIdToImageUrl(int pokemonId) {
   return 'https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/official-artwork/$pokemonId.png';
 }
+
+extension StringExtensions on String {
+  String capitalize() {
+    final lowerCaseString = toLowerCase();
+    return lowerCaseString[0].toUpperCase() + lowerCaseString.substring(1);
+  }
+}
