@@ -8,6 +8,7 @@ import 'package:isar/isar.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
+import 'package:poke_dapp_2/data/cache/model/pokemon_summary_cm.dart';
 
 import 'common/providers/general_provider.dart';
 import 'common/routing.dart';
@@ -32,13 +33,14 @@ void main() async {
     () async {
       WidgetsFlutterBinding.ensureInitialized();
 
-      // TODO: Tirar comentário ao implementar o cache
-      // final dir = await getApplicationDocumentsDirectory();
-      //
-      // final isar = await Isar.open(
-      //   [],
-      //   directory: dir.path,
-      // );
+      final dir = await getApplicationDocumentsDirectory();
+
+      final isar = await Isar.open(
+        [
+          PokemonSummaryCMSchema,
+        ],
+        directory: dir.path,
+      );
 
       await SystemChrome.setPreferredOrientations(
         <DeviceOrientation>[
@@ -56,9 +58,9 @@ void main() async {
       );
       runApp(
         ProviderScope(
-          // overrides: [
-          //   isarProvider.overrideWithValue(isar),
-          // ],
+          overrides: [
+            isarProvider.overrideWithValue(isar),
+          ],
           child: const _MyApp(),
         ),
       );

@@ -23,6 +23,9 @@ class LightColors implements AppColors {
   @override
   Color get surfaceColor => _white;
 
+  @override
+  Color get imagePlaceholderColor => _taupeGray;
+
   // Bottom Navigation
 
   @override

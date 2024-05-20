@@ -6,8 +6,10 @@ class NoConnectionException implements PokeDappException {}
 
 class ResourceAlreadyExistsException implements PokeDappException {}
 
-class ObjectNotFoundException implements PokeDappException {}
+class NullResponseException implements PokeDappException {}
 
 class DatabaseNotStartedException implements PokeDappException {}
 
 class ConnectionTimedOutException implements PokeDappException {}
+
+class GetPokemonSummaryListException implements PokeDappException {}
