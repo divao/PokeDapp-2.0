@@ -2,6 +2,7 @@ import 'package:dio/dio.dart';
 import 'package:domain/exceptions.dart';
 import 'package:domain/logger.dart';
 import 'package:domain/use_case/get_pokemon_summary_list_uc.dart';
+import 'package:domain/use_case/get_pokemon_detail_uc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:isar/isar.dart';
 import 'package:poke_dapp_2/common/app_theme/base/app_theme.dart';
@@ -49,3 +50,15 @@ final getPokemonSummaryListUCProvider =
     pokemonDataRepository: pokemonDataRepository,
   );
 });
+
+final getPokemonDetailUCProvider = Provider.autoDispose<GetPokemonDetailUC>(
+  (ref) {
+    final logger = ref.watch<ErrorLogger>(errorLoggerProvider);
+    final pokemonDataRepository =
+        ref.watch<PokemonRepository>(_pokemonRepositoryProvider);
+    return GetPokemonDetailUC(
+      logger: logger,
+      pokemonDataRepository: pokemonDataRepository,
+    );
+  },
+);

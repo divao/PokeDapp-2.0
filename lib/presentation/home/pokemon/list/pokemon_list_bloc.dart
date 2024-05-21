@@ -20,7 +20,7 @@ class PokemonListBloc with SubscriptionHolder {
   PokemonListBloc({
     required GetPokemonSummaryListUC getPokemonSummaryListUC,
   }) : _getPokemonSummaryListUC = getPokemonSummaryListUC {
-    Rx.merge<void>([
+    Rx.merge<dynamic>([
       Stream.value(null),
       _onTryAgainSubject,
     ])
