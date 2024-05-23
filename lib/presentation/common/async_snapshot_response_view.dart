@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 
 class AsyncSnapshotResponseView<Loading, Error, Success>
-    extends StatelessWidget {
+    extends ConsumerWidget {
   AsyncSnapshotResponseView({
     required this.snapshot,
     required this.successWidgetBuilder,
@@ -15,25 +17,27 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
 
   final AsyncSnapshot<dynamic> snapshot;
   final Widget Function(BuildContext context, Success success)
-  successWidgetBuilder;
+      successWidgetBuilder;
   final Widget Function(BuildContext context, Loading? loading)?
-  loadingWidgetBuilder;
+      loadingWidgetBuilder;
   final Widget Function(
-      BuildContext context,
-      Error? error,
-      VoidCallback onTryAgain,
-      )? errorWidgetBuilder;
+    BuildContext context,
+    Error? error,
+    VoidCallback onTryAgain,
+  )? errorWidgetBuilder;
   final VoidCallback onTryAgainTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final data = snapshot.data;
     if (data == null || data is Loading) {
       if (loadingWidgetBuilder != null) {
         return loadingWidgetBuilder!(context, data as Loading?);
       }
-      return const Center(
-        child: CircularProgressIndicator(),
+      return Center(
+        child: CircularProgressIndicator(
+          color: ref.colors.primaryColor,
+        ),
       );
     }
 
@@ -41,8 +45,24 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
       if (errorWidgetBuilder != null) {
         return errorWidgetBuilder!(context, data, onTryAgainTap);
       }
-      return const Center(
-        child: Text('Error'),
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              ref.s.genericError,
+              style: ref.textStyles.errorText,
+            ),
+            const SizedBox(height: 4),
+            TextButton(
+              onPressed: onTryAgainTap,
+              style: TextButton.styleFrom(
+                foregroundColor: ref.colors.primaryColor,
+              ),
+              child: Text(ref.s.tryAgain)
+            ),
+          ],
+        ),
       );
     }
 

@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a pt_BR locale. All the
+// This is a library that provides messages for a en_US locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,7 +18,9 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'pt_BR';
+  String get localeName => 'en_US';
+
+  static String m0(pokemonId) => "No. ${pokemonId}";
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
@@ -26,6 +28,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "bottomNavigationPokedexItem":
             MessageLookupByLibrary.simpleMessage("Pokédex"),
         "bottomNavigationPokemonItem":
-            MessageLookupByLibrary.simpleMessage("Pokémon")
+            MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "genericError":
+            MessageLookupByLibrary.simpleMessage("Something went wrong."),
+        "pokemonDetailTitle":
+            MessageLookupByLibrary.simpleMessage("Pokémon Details"),
+        "pokemonNumber": m0,
+        "pokemonStatAttack": MessageLookupByLibrary.simpleMessage("Attack"),
+        "pokemonStatDefense": MessageLookupByLibrary.simpleMessage("Defense"),
+        "pokemonStatHp": MessageLookupByLibrary.simpleMessage("HP"),
+        "pokemonStatSpecialAttack":
+            MessageLookupByLibrary.simpleMessage("Sp. Atk"),
+        "pokemonStatSpecialDefense":
+            MessageLookupByLibrary.simpleMessage("Sp. Def"),
+        "pokemonStatSpeed": MessageLookupByLibrary.simpleMessage("Speed"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("TRY AGAIN")
       };
 }

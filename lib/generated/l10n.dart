@@ -79,6 +79,106 @@ class S {
       args: [],
     );
   }
+
+  /// `Pokémon Details`
+  String get pokemonDetailTitle {
+    return Intl.message(
+      'Pokémon Details',
+      name: 'pokemonDetailTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong.`
+  String get genericError {
+    return Intl.message(
+      'Something went wrong.',
+      name: 'genericError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TRY AGAIN`
+  String get tryAgain {
+    return Intl.message(
+      'TRY AGAIN',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No. {pokemonId}`
+  String pokemonNumber(Object pokemonId) {
+    return Intl.message(
+      'No. $pokemonId',
+      name: 'pokemonNumber',
+      desc: '',
+      args: [pokemonId],
+    );
+  }
+
+  /// `HP`
+  String get pokemonStatHp {
+    return Intl.message(
+      'HP',
+      name: 'pokemonStatHp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attack`
+  String get pokemonStatAttack {
+    return Intl.message(
+      'Attack',
+      name: 'pokemonStatAttack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Defense`
+  String get pokemonStatDefense {
+    return Intl.message(
+      'Defense',
+      name: 'pokemonStatDefense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sp. Atk`
+  String get pokemonStatSpecialAttack {
+    return Intl.message(
+      'Sp. Atk',
+      name: 'pokemonStatSpecialAttack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sp. Def`
+  String get pokemonStatSpecialDefense {
+    return Intl.message(
+      'Sp. Def',
+      name: 'pokemonStatSpecialDefense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Speed`
+  String get pokemonStatSpeed {
+    return Intl.message(
+      'Speed',
+      name: 'pokemonStatSpeed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -86,7 +186,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
+      Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
     ];
   }
 

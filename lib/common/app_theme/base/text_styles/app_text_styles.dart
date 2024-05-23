@@ -9,7 +9,13 @@ abstract class AppTextStyles {
   TextStyle get appBarTitle;
   TextStyle get bottomNavigationSelectedText;
   TextStyle get bottomNavigationUnselectedText;
+  TextStyle get errorText;
 
   // PokemonSummaryPage
   TextStyle get pokemonSummaryName;
+
+  // PokemonDetailPage
+  TextStyle get pokemonDetailNumber;
+  TextStyle get pokemonDetailDescription;
+  TextStyle get pokemonDetailStats;
 }
