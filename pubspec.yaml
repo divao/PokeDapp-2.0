@@ -28,6 +28,7 @@ dependencies:
   flutter_svg: ^2.0.10+1
   dio: ^5.4.3+1
   cached_network_image: ^3.3.1
+  just_audio: ^0.9.38
 
 dev_dependencies:
   flutter_test:
@@ -66,4 +67,4 @@ flutter:
 
 flutter_intl:
   enabled: true
-  main_locale: pt_BR
+  main_locale: en_US
