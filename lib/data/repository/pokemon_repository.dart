@@ -36,14 +36,14 @@ class PokemonRepository extends PokemonDataRepository {
 
     return PokemonDetail(
       id: pokemonId,
-      name: pokemonAttributes.name,
-      imageUrl: pokemonIdToImageUrl(pokemonId),
+      name: pokemonAttributes.name.capitalize(),
+      imageUrl: pokemonIdToHomeImageUrl(pokemonId),
       types: pokemonTypes.map((pokemonType) => pokemonType.type.toDM()).toList(),
       stats: pokemonAttributes.stats.map((stat) => stat.toDM()).toList(),
       cryUrl: pokemonAttributes.cry.toDM(),
       description: pokemonDescription.descriptionList
           .firstWhere((description) => description.language.name == 'en')
-          .toDM(),
+          .toDM().fixPokemonDescription(),
     );
   }
 }

@@ -9,7 +9,7 @@ extension PokemonSummartRMMappers on PokemonSummaryRM {
     return PokemonSummaryCM(
       id: pokemonId,
       name: name,
-      imageUrl: pokemonIdToImageUrl(pokemonId),
+      imageUrl: pokemonIdToOfficialImageUrl(pokemonId),
     );
   }
 }

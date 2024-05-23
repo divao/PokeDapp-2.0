@@ -75,14 +75,14 @@ final goRouterProvider = Provider.autoDispose<GoRouter>(
 
 extension PageNavigationExtension on GoRouter {
   void goPokemonDetail({
+    required String currentPath,
     required int pokemonId,
-  }) =>
-      go(_pokemonDetailPath.replaceFirst(':id', pokemonId.toString()));
-
-  void goPokedexDetail({
-    required int pokemonId,
-  }) =>
-      go(_pokedexDetailPath.replaceFirst(':id', pokemonId.toString()));
+  }) {
+    final pokemonDetailPath = currentPath +
+        _slash +
+        _pokemonDetailPage.replaceFirst(':id', pokemonId.toString());
+    go(pokemonDetailPath);
+  }
 }
 
 extension GoRouterConsumerExtension on WidgetRef {

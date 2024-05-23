@@ -1,3 +1,5 @@
+import 'package:poke_dapp_2/data/view/model/pokemon_type_vm.dart';
+
 class PokemonDetailVM {
   PokemonDetailVM({
     required this.id,
@@ -12,7 +14,7 @@ class PokemonDetailVM {
   final int id;
   final String name;
   final String imageUrl;
-  final List<String> types;
+  final List<PokemonTypeVM> types;
   final List<PokemonStatVM> stats;
   final String cryUrl;
   final String description;
@@ -24,6 +26,16 @@ class PokemonStatVM {
     required this.value,
   });
 
-  final String name;
+  final StatVM name;
   final int value;
+}
+
+enum StatVM {
+  hp,
+  attack,
+  defense,
+  specialAttack,
+  specialDefense,
+  speed,
+  error,
 }

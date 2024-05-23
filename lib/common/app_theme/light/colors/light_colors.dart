@@ -36,4 +36,12 @@ class LightColors implements AppColors {
 
   @override
   Color get bottomNavigationBarUnselectedIconColor => _graniteGray;
+
+  // PokemonDetailPage
+
+  @override
+  Color get pokemonStatBaseColor => _englishVermillion.withOpacity(.18);
+
+  @override
+  Color get pokemonStatProgressColor => _englishVermillion;
 }

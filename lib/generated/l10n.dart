@@ -79,6 +79,76 @@ class S {
       args: [],
     );
   }
+
+  /// `No. {pokemonId}`
+  String pokemonNumber(Object pokemonId) {
+    return Intl.message(
+      'No. $pokemonId',
+      name: 'pokemonNumber',
+      desc: '',
+      args: [pokemonId],
+    );
+  }
+
+  /// `HP`
+  String get pokemonStatHp {
+    return Intl.message(
+      'HP',
+      name: 'pokemonStatHp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attack`
+  String get pokemonStatAttack {
+    return Intl.message(
+      'Attack',
+      name: 'pokemonStatAttack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Defense`
+  String get pokemonStatDefense {
+    return Intl.message(
+      'Defense',
+      name: 'pokemonStatDefense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sp. Atk`
+  String get pokemonStatSpecialAttack {
+    return Intl.message(
+      'Sp. Atk',
+      name: 'pokemonStatSpecialAttack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sp. Def`
+  String get pokemonStatSpecialDefense {
+    return Intl.message(
+      'Sp. Def',
+      name: 'pokemonStatSpecialDefense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Speed`
+  String get pokemonStatSpeed {
+    return Intl.message(
+      'Speed',
+      name: 'pokemonStatSpeed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -20,4 +20,10 @@ abstract class AppColors {
   Color get bottomNavigationBarSelectedIconColor;
 
   Color get bottomNavigationBarUnselectedIconColor;
+
+  // PokemonDetailPage
+
+  Color get pokemonStatBaseColor;
+
+  Color get pokemonStatProgressColor;
 }

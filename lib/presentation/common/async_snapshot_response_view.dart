@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_riverpod/flutter_riverpod.dart';
+import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 
 class AsyncSnapshotResponseView<Loading, Error, Success>
-    extends StatelessWidget {
+    extends ConsumerWidget {
   AsyncSnapshotResponseView({
     required this.snapshot,
     required this.successWidgetBuilder,
@@ -26,14 +28,16 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
   final VoidCallback onTryAgainTap;
 
   @override
-  Widget build(BuildContext context) {
+  Widget build(BuildContext context, WidgetRef ref) {
     final data = snapshot.data;
     if (data == null || data is Loading) {
       if (loadingWidgetBuilder != null) {
         return loadingWidgetBuilder!(context, data as Loading?);
       }
-      return const Center(
-        child: CircularProgressIndicator(),
+      return Center(
+        child: CircularProgressIndicator(
+          color: ref.colors.primaryColor,
+        ),
       );
     }
 

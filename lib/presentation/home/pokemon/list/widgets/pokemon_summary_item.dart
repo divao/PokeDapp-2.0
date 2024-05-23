@@ -16,9 +16,12 @@ class PokemonSummaryItem extends ConsumerWidget {
 
   @override
   Widget build(BuildContext context, WidgetRef ref) => GestureDetector(
-    // TODO: achar um jeito de corrigir esse problema das duas abas iguais
-    onTap: () => ref.goRouter.goPokemonDetail(pokemonId: pokemonSummary.id),
-    child: Column(
+        onTap: () => ref.goRouter.goPokemonDetail(
+          currentPath:
+              ref.goRouter.routeInformationProvider.value.uri.toString(),
+          pokemonId: pokemonSummary.id,
+        ),
+        child: Column(
           children: [
             CachedNetworkImage(
               imageUrl: pokemonSummary.imageUrl,
@@ -43,5 +46,5 @@ class PokemonSummaryItem extends ConsumerWidget {
             ),
           ],
         ),
-  );
+      );
 }

@@ -12,4 +12,9 @@ abstract class AppTextStyles {
 
   // PokemonSummaryPage
   TextStyle get pokemonSummaryName;
+
+  // PokemonDetailPage
+  TextStyle get pokemonDetailNumber;
+  TextStyle get pokemonDetailDescription;
+  TextStyle get pokemonDetailStats;
 }

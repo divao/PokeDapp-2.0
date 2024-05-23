@@ -20,12 +20,23 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'pt_BR';
 
+  static String m0(pokemonId) => "No. ${pokemonId}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appTitle": MessageLookupByLibrary.simpleMessage("PokéDapp"),
         "bottomNavigationPokedexItem":
             MessageLookupByLibrary.simpleMessage("Pokédex"),
         "bottomNavigationPokemonItem":
-            MessageLookupByLibrary.simpleMessage("Pokémon")
+            MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "pokemonNumber": m0,
+        "pokemonStatAttack": MessageLookupByLibrary.simpleMessage("Attack"),
+        "pokemonStatDefense": MessageLookupByLibrary.simpleMessage("Defense"),
+        "pokemonStatHp": MessageLookupByLibrary.simpleMessage("HP"),
+        "pokemonStatSpecialAttack":
+            MessageLookupByLibrary.simpleMessage("Sp. Atk"),
+        "pokemonStatSpecialDefense":
+            MessageLookupByLibrary.simpleMessage("Sp. Def"),
+        "pokemonStatSpeed": MessageLookupByLibrary.simpleMessage("Speed")
       };
 }

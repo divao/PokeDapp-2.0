@@ -2,5 +2,12 @@
   "@@locale": "pt_BR",
   "appTitle": "PokéDapp",
   "bottomNavigationPokemonItem": "Pokémon",
-  "bottomNavigationPokedexItem": "Pokédex"
+  "bottomNavigationPokedexItem": "Pokédex",
+  "pokemonNumber": "No. {pokemonId}",
+  "pokemonStatHp": "HP",
+  "pokemonStatAttack": "Attack",
+  "pokemonStatDefense": "Defense",
+  "pokemonStatSpecialAttack": "Sp. Atk",
+  "pokemonStatSpecialDefense": "Sp. Def",
+  "pokemonStatSpeed": "Speed"
 }
