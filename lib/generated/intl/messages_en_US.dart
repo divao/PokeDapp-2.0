@@ -29,6 +29,10 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Pokédex"),
         "bottomNavigationPokemonItem":
             MessageLookupByLibrary.simpleMessage("Pokémon"),
+        "genericError":
+            MessageLookupByLibrary.simpleMessage("Something went wrong."),
+        "pokemonDetailTitle":
+            MessageLookupByLibrary.simpleMessage("Pokémon Details"),
         "pokemonNumber": m0,
         "pokemonStatAttack": MessageLookupByLibrary.simpleMessage("Attack"),
         "pokemonStatDefense": MessageLookupByLibrary.simpleMessage("Defense"),
@@ -37,6 +41,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("Sp. Atk"),
         "pokemonStatSpecialDefense":
             MessageLookupByLibrary.simpleMessage("Sp. Def"),
-        "pokemonStatSpeed": MessageLookupByLibrary.simpleMessage("Speed")
+        "pokemonStatSpeed": MessageLookupByLibrary.simpleMessage("Speed"),
+        "tryAgain": MessageLookupByLibrary.simpleMessage("TRY AGAIN")
       };
 }

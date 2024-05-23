@@ -61,7 +61,7 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
   }
 
   Future<void> _playAudio(String audioUrl) async {
-      await _loadAudioAndPlay(audioUrl);
+    await _loadAudioAndPlay(audioUrl);
   }
 
   @override
@@ -85,6 +85,56 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
         return AsyncSnapshotResponseView<Loading, Error, Success>(
             snapshot: snapshot,
             onTryAgainTap: () => _bloc.onTryAgainSink.add(null),
+            errorWidgetBuilder: (context, error, onTryAgain) {
+              return Scaffold(
+                backgroundColor: ref.colors.surfaceColor,
+                appBar: AppBar(
+                  title: Text(
+                    ref.s.pokemonDetailTitle,
+                    style: ref.textStyles.appBarTitle,
+                  ),
+                  backgroundColor: ref.colors.primaryColor,
+                  iconTheme: IconThemeData(color: ref.colors.surfaceColor),
+                ),
+                body: Center(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Text(
+                        ref.s.genericError,
+                        style: ref.textStyles.errorText,
+                      ),
+                      const SizedBox(height: 4),
+                      TextButton(
+                        onPressed: onTryAgain,
+                        style: TextButton.styleFrom(
+                          foregroundColor: ref.colors.primaryColor,
+                        ),
+                        child: Text(ref.s.tryAgain),
+                      ),
+                    ],
+                  ),
+                ),
+              );
+            },
+            loadingWidgetBuilder: (context, loading) {
+              return Scaffold(
+                backgroundColor: ref.colors.surfaceColor,
+                appBar: AppBar(
+                  title: Text(
+                    ref.s.pokemonDetailTitle,
+                    style: ref.textStyles.appBarTitle,
+                  ),
+                  backgroundColor: ref.colors.primaryColor,
+                  iconTheme: IconThemeData(color: ref.colors.surfaceColor),
+                ),
+                body: Center(
+                  child: CircularProgressIndicator(
+                    color: ref.colors.primaryColor,
+                  ),
+                ),
+              );
+            },
             successWidgetBuilder: (context, success) {
               final pokemon = success.pokemonDetail;
               _loadAudio(pokemon.cryUrl);

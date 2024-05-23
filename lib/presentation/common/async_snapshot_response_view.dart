@@ -17,14 +17,14 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
 
   final AsyncSnapshot<dynamic> snapshot;
   final Widget Function(BuildContext context, Success success)
-  successWidgetBuilder;
+      successWidgetBuilder;
   final Widget Function(BuildContext context, Loading? loading)?
-  loadingWidgetBuilder;
+      loadingWidgetBuilder;
   final Widget Function(
-      BuildContext context,
-      Error? error,
-      VoidCallback onTryAgain,
-      )? errorWidgetBuilder;
+    BuildContext context,
+    Error? error,
+    VoidCallback onTryAgain,
+  )? errorWidgetBuilder;
   final VoidCallback onTryAgainTap;
 
   @override
@@ -45,8 +45,24 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
       if (errorWidgetBuilder != null) {
         return errorWidgetBuilder!(context, data, onTryAgainTap);
       }
-      return const Center(
-        child: Text('Error'),
+      return Center(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              ref.s.genericError,
+              style: ref.textStyles.errorText,
+            ),
+            const SizedBox(height: 4),
+            TextButton(
+              onPressed: onTryAgainTap,
+              style: TextButton.styleFrom(
+                foregroundColor: ref.colors.primaryColor,
+              ),
+              child: Text(ref.s.tryAgain)
+            ),
+          ],
+        ),
       );
     }
 

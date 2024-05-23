@@ -80,6 +80,36 @@ class S {
     );
   }
 
+  /// `Pokémon Details`
+  String get pokemonDetailTitle {
+    return Intl.message(
+      'Pokémon Details',
+      name: 'pokemonDetailTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong.`
+  String get genericError {
+    return Intl.message(
+      'Something went wrong.',
+      name: 'genericError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TRY AGAIN`
+  String get tryAgain {
+    return Intl.message(
+      'TRY AGAIN',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `No. {pokemonId}`
   String pokemonNumber(Object pokemonId) {
     return Intl.message(

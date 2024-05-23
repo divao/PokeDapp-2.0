@@ -27,6 +27,14 @@ class LightTextStyles extends AppTextStyles {
     fontFamily: _montserratFontFamily,
   );
 
+  @override
+  TextStyle get errorText => const TextStyle(
+    color: _black,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _montserratFontFamily,
+  );
+
   // PokemonSummaryPage
   @override
   TextStyle get pokemonSummaryName => const TextStyle(
