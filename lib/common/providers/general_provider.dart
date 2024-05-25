@@ -7,6 +7,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:isar/isar.dart';
 import 'package:poke_dapp_2/common/app_theme/base/app_theme.dart';
 import 'package:poke_dapp_2/common/app_theme/light/light_app_theme.dart';
+import 'package:poke_dapp_2/data/cache/data_source/pokemon_cds.dart';
 import 'package:poke_dapp_2/data/remote/data_source/pokemon_rds.dart';
 import 'package:poke_dapp_2/data/remote/infrastructure/poke_dapp_dio.dart';
 import 'package:poke_dapp_2/data/repository/pokemon_repository.dart';
@@ -35,9 +36,18 @@ final _pokemonRDSProvider = Provider<PokemonRDS>((ref) {
   return PokemonRDS(dio);
 });
 
+final _pokemonCDSProvider = Provider<PokemonCDS>((ref) {
+  final isar = ref.watch(isarProvider);
+  return PokemonCDS(isar: isar);
+});
+
 final _pokemonRepositoryProvider = Provider<PokemonRepository>((ref) {
   final pokemonRDS = ref.watch(_pokemonRDSProvider);
-  return PokemonRepository(pokemonRDS: pokemonRDS);
+  final pokemonCDS = ref.watch(_pokemonCDSProvider);
+  return PokemonRepository(
+    pokemonRDS: pokemonRDS,
+    pokemonCDS: pokemonCDS,
+  );
 });
 
 final getPokemonSummaryListUCProvider =

@@ -8,6 +8,7 @@ import 'package:isar/isar.dart';
 import 'package:logger/logger.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
+import 'package:poke_dapp_2/data/cache/model/pokemon_detail_cm.dart';
 import 'package:poke_dapp_2/data/cache/model/pokemon_summary_cm.dart';
 
 import 'common/providers/general_provider.dart';
@@ -38,6 +39,7 @@ void main() async {
       final isar = await Isar.open(
         [
           PokemonSummaryCMSchema,
+          PokemonDetailCMSchema,
         ],
         directory: dir.path,
       );
