@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
-import 'package:poke_dapp_2/presentation/home/pokemon/detail/widgets/pokemon_stat_progress_indicator.dart';
+import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
+import 'package:poke_dapp_2/presentation/common/widgets/empty_state/empty_state.dart';
+import 'package:poke_dapp_2/presentation/common/widgets/empty_state/general_empty_state.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/detail/widgets/pokemon_stats_list.dart';
 import 'package:poke_dapp_2/presentation/utils/view_utils.dart';
 import 'package:poke_dapp_2/presentation/common/async_snapshot_response_view.dart';
@@ -57,6 +59,7 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
       Future.delayed(Duration.zero, _player.play);
     } catch (e) {
       Future.delayed(Duration.zero, _player.stop);
+      await _showAudioErrorDialog();
     }
   }
 
@@ -75,6 +78,27 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
     WidgetsBinding.instance.removeObserver(this);
     _player.dispose();
     super.dispose();
+  }
+
+  Future<void> _showAudioErrorDialog() async {
+    await showDialog<AlertDialog>(
+      context: context,
+      builder: (context) {
+        return AlertDialog(
+          title: Text(ref.s.audioErrorTitle),
+          titleTextStyle: ref.textStyles.dialogTitle,
+          content: Text(ref.s.audioErrorMessage),
+          contentTextStyle: ref.textStyles.dialogContent,
+          backgroundColor: ref.colors.surfaceColor,
+          actions: [
+            TextButton(
+              onPressed: () => Navigator.of(context, rootNavigator: true).pop(),
+              child: Text(ref.s.ok, style: ref.textStyles.dialogTextButton),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -96,24 +120,9 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
                   backgroundColor: ref.colors.primaryColor,
                   iconTheme: IconThemeData(color: ref.colors.surfaceColor),
                 ),
-                body: Center(
-                  child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        ref.s.genericError,
-                        style: ref.textStyles.errorText,
-                      ),
-                      const SizedBox(height: 4),
-                      TextButton(
-                        onPressed: onTryAgain,
-                        style: TextButton.styleFrom(
-                          foregroundColor: ref.colors.primaryColor,
-                        ),
-                        child: Text(ref.s.tryAgain),
-                      ),
-                    ],
-                  ),
+                body: GeneralEmptyState(
+                  onTryAgain: onTryAgain,
+                  errorType: error?.type ?? GenericErrorViewType.unexpected,
                 ),
               );
             },
@@ -148,10 +157,29 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
                   backgroundColor: ref.colors.primaryColor,
                   iconTheme: IconThemeData(color: ref.colors.surfaceColor),
                   actions: [
-                    IconButton(
-                      icon: const Icon(Icons.volume_up),
-                      onPressed: () => _playAudio(pokemon.cryUrl),
-                    ),
+                    StreamBuilder<PlayerState>(
+                        stream: _player.playerStateStream,
+                        builder: (context, snapshot) {
+                          final playerState = snapshot.data;
+                          final processingState = playerState?.processingState;
+                          if (processingState == ProcessingState.loading) {
+                            return IconButton(
+                              icon: SizedBox(
+                                height: 20,
+                                width: 20,
+                                child: CircularProgressIndicator(
+                                  color: ref.colors.surfaceColor,
+                                ),
+                              ),
+                              onPressed: null,
+                            );
+                          } else {
+                            return IconButton(
+                              icon: const Icon(Icons.volume_up),
+                              onPressed: () => _playAudio(pokemon.cryUrl),
+                            );
+                          }
+                        }),
                   ],
                 ),
                 body: SingleChildScrollView(

@@ -35,6 +35,30 @@ class LightTextStyles extends AppTextStyles {
     fontFamily: _montserratFontFamily,
   );
 
+  @override
+  TextStyle get dialogTitle => const TextStyle(
+    color: _black,
+    fontSize: 18,
+    fontWeight: FontWeight.w600,
+    fontFamily: _montserratFontFamily,
+  );
+
+  @override
+  TextStyle get dialogContent => const TextStyle(
+    color: _black,
+    fontSize: 14,
+    fontWeight: FontWeight.w400,
+    fontFamily: _montserratFontFamily,
+  );
+
+  @override
+  TextStyle get dialogTextButton => const TextStyle(
+    color: _englishVermillion,
+    fontSize: 14,
+    fontWeight: FontWeight.w600,
+    fontFamily: _montserratFontFamily,
+  );
+
   // PokemonSummaryPage
   @override
   TextStyle get pokemonSummaryName => const TextStyle(

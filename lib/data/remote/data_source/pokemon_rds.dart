@@ -23,7 +23,7 @@ class PokemonRDS {
       if (e is DioException) {
         throw GetPokemonSummaryListException();
       }
-      throw UnexpectedException();
+      rethrow;
     }
   }
 
@@ -40,7 +40,7 @@ class PokemonRDS {
       if (e is DioException) {
         throw GetPokemonSummaryListException();
       }
-      throw UnexpectedException();
+      rethrow;
     }
   }
 
@@ -57,7 +57,7 @@ class PokemonRDS {
       if (e is DioException) {
         throw GetPokemonSummaryListException();
       }
-      throw UnexpectedException();
+      rethrow;
     }
   }
 
