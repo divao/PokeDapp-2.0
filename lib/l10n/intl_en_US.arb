@@ -5,6 +5,8 @@
   "bottomNavigationPokedexItem": "Pokédex",
   "pokemonDetailTitle": "Pokémon Details",
   "genericError": "Something went wrong.",
+  "timeoutError": "Internal server error.",
+  "noInternetError": "No internet connection.",
   "tryAgain": "TRY AGAIN",
   "pokemonNumber": "No. {pokemonId}",
   "pokemonStatHp": "HP",
@@ -12,5 +14,8 @@
   "pokemonStatDefense": "Defense",
   "pokemonStatSpecialAttack": "Sp. Atk",
   "pokemonStatSpecialDefense": "Sp. Def",
-  "pokemonStatSpeed": "Speed"
+  "pokemonStatSpeed": "Speed",
+  "audioErrorTitle": "Error",
+  "audioErrorMessage": "An error occurred while loading the audio.",
+  "ok": "OK"
 }

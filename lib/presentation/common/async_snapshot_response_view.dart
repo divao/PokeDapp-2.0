@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
+import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
+import 'package:poke_dapp_2/presentation/common/widgets/empty_state/general_empty_state.dart';
 
 class AsyncSnapshotResponseView<Loading, Error, Success>
     extends ConsumerWidget {
@@ -45,24 +47,11 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
       if (errorWidgetBuilder != null) {
         return errorWidgetBuilder!(context, data, onTryAgainTap);
       }
-      return Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              ref.s.genericError,
-              style: ref.textStyles.errorText,
-            ),
-            const SizedBox(height: 4),
-            TextButton(
-              onPressed: onTryAgainTap,
-              style: TextButton.styleFrom(
-                foregroundColor: ref.colors.primaryColor,
-              ),
-              child: Text(ref.s.tryAgain)
-            ),
-          ],
-        ),
+      return GeneralEmptyState(
+        onTryAgain: onTryAgainTap,
+        errorType: data is GenericErrorView
+            ? data.type
+            : GenericErrorViewType.unexpected,
       );
     }
 

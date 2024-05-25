@@ -4,6 +4,7 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poke_dapp_2/common/providers/general_provider.dart';
 import 'package:poke_dapp_2/common/subscription_holder.dart';
 import 'package:poke_dapp_2/data/mappers/domain_to_view.dart';
+import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/list/pokemon_list_states.dart';
 import 'package:rxdart/rxdart.dart';
 
@@ -50,7 +51,7 @@ class PokemonListBloc with SubscriptionHolder {
       final pokemonList = await _getPokemonSummaryListUC.getFuture(NoParams());
       yield Success(pokemonList: pokemonList.map((pokemon) => pokemon.toVM()).toList());
     } catch (e) {
-      yield Error();
+      yield Error(mapToGenericViewErrorType(e));
     }
   }
 

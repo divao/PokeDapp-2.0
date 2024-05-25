@@ -25,12 +25,18 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "appTitle": MessageLookupByLibrary.simpleMessage("PokéDapp"),
+        "audioErrorMessage": MessageLookupByLibrary.simpleMessage(
+            "An error occurred while loading the audio."),
+        "audioErrorTitle": MessageLookupByLibrary.simpleMessage("Error"),
         "bottomNavigationPokedexItem":
             MessageLookupByLibrary.simpleMessage("Pokédex"),
         "bottomNavigationPokemonItem":
             MessageLookupByLibrary.simpleMessage("Pokémon"),
         "genericError":
             MessageLookupByLibrary.simpleMessage("Something went wrong."),
+        "noInternetError":
+            MessageLookupByLibrary.simpleMessage("No internet connection."),
+        "ok": MessageLookupByLibrary.simpleMessage("OK"),
         "pokemonDetailTitle":
             MessageLookupByLibrary.simpleMessage("Pokémon Details"),
         "pokemonNumber": m0,
@@ -42,6 +48,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "pokemonStatSpecialDefense":
             MessageLookupByLibrary.simpleMessage("Sp. Def"),
         "pokemonStatSpeed": MessageLookupByLibrary.simpleMessage("Speed"),
+        "timeoutError":
+            MessageLookupByLibrary.simpleMessage("Internal server error."),
         "tryAgain": MessageLookupByLibrary.simpleMessage("TRY AGAIN")
       };
 }

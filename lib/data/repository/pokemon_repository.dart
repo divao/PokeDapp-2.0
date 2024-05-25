@@ -31,6 +31,9 @@ class PokemonRepository extends PokemonDataRepository {
       return cachePokemonSummaryList.map((pokemonSummaryCM) => pokemonSummaryCM.toDM()).toList();
     } catch (e) {
       final cachePokemonSummaryList = await pokemonCDS.fetchPokemonSummaryList();
+      if (cachePokemonSummaryList.isEmpty) {
+        rethrow;
+      }
       return cachePokemonSummaryList.map((pokemonSummaryCM) => pokemonSummaryCM.toDM()).toList();
     }
   }

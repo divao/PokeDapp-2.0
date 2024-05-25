@@ -100,6 +100,26 @@ class S {
     );
   }
 
+  /// `Internal server error.`
+  String get timeoutError {
+    return Intl.message(
+      'Internal server error.',
+      name: 'timeoutError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No internet connection.`
+  String get noInternetError {
+    return Intl.message(
+      'No internet connection.',
+      name: 'noInternetError',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `TRY AGAIN`
   String get tryAgain {
     return Intl.message(
@@ -175,6 +195,36 @@ class S {
     return Intl.message(
       'Speed',
       name: 'pokemonStatSpeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get audioErrorTitle {
+    return Intl.message(
+      'Error',
+      name: 'audioErrorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while loading the audio.`
+  String get audioErrorMessage {
+    return Intl.message(
+      'An error occurred while loading the audio.',
+      name: 'audioErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
       desc: '',
       args: [],
     );

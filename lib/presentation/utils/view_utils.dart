@@ -4,46 +4,27 @@ import 'package:poke_dapp_2/data/view/model/pokemon_detail_vm.dart';
 import 'package:poke_dapp_2/data/view/model/pokemon_type_vm.dart';
 
 PokemonTypeVM pokemonTypeFromString(String type) {
-  switch (type) {
-    case 'normal':
-      return PokemonTypeVM.normal;
-    case 'fighting':
-      return PokemonTypeVM.fighting;
-    case 'flying':
-      return PokemonTypeVM.flying;
-    case 'poison':
-      return PokemonTypeVM.poison;
-    case 'ground':
-      return PokemonTypeVM.ground;
-    case 'rock':
-      return PokemonTypeVM.rock;
-    case 'bug':
-      return PokemonTypeVM.bug;
-    case 'ghost':
-      return PokemonTypeVM.ghost;
-    case 'steel':
-      return PokemonTypeVM.steel;
-    case 'fire':
-      return PokemonTypeVM.fire;
-    case 'water':
-      return PokemonTypeVM.water;
-    case 'grass':
-      return PokemonTypeVM.grass;
-    case 'electric':
-      return PokemonTypeVM.electric;
-    case 'psychic':
-      return PokemonTypeVM.psychic;
-    case 'ice':
-      return PokemonTypeVM.ice;
-    case 'dragon':
-      return PokemonTypeVM.dragon;
-    case 'dark':
-      return PokemonTypeVM.dark;
-    case 'fairy':
-      return PokemonTypeVM.fairy;
-    default:
-      return PokemonTypeVM.normal;
-  }
+  return switch (type) {
+    'normal' => PokemonTypeVM.normal,
+    'fighting' => PokemonTypeVM.fighting,
+    'flying' => PokemonTypeVM.flying,
+    'poison' => PokemonTypeVM.poison,
+    'ground' => PokemonTypeVM.ground,
+    'rock' => PokemonTypeVM.rock,
+    'bug' => PokemonTypeVM.bug,
+    'ghost' => PokemonTypeVM.ghost,
+    'steel' => PokemonTypeVM.steel,
+    'fire' => PokemonTypeVM.fire,
+    'water' => PokemonTypeVM.water,
+    'grass' => PokemonTypeVM.grass,
+    'electric' => PokemonTypeVM.electric,
+    'psychic' => PokemonTypeVM.psychic,
+    'ice' => PokemonTypeVM.ice,
+    'dragon' => PokemonTypeVM.dragon,
+    'dark' => PokemonTypeVM.dark,
+    'fairy' => PokemonTypeVM.fairy,
+    _ => PokemonTypeVM.normal
+  };
 }
 
 String pokemonTypeToAssetPath(WidgetRef ref, PokemonTypeVM type) {
