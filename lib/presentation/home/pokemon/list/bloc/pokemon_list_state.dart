@@ -17,3 +17,5 @@ class Error implements PokemonListState, GenericErrorView {
   @override
   final GenericErrorViewType type;
 }
+
+class Initial implements PokemonListState {}

@@ -2,17 +2,19 @@ import 'dart:async';
 
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
-import 'package:poke_dapp_2/presentation/common/widgets/empty_state/empty_state.dart';
 import 'package:poke_dapp_2/presentation/common/widgets/empty_state/general_empty_state.dart';
+import 'package:poke_dapp_2/presentation/home/pokemon/detail/bloc/pokemon_detail_event.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/detail/widgets/pokemon_stats_list.dart';
 import 'package:poke_dapp_2/presentation/utils/view_utils.dart';
-import 'package:poke_dapp_2/presentation/common/async_snapshot_response_view.dart';
-import 'package:poke_dapp_2/presentation/home/pokemon/detail/pokemon_detail_bloc.dart';
-import 'package:poke_dapp_2/presentation/home/pokemon/detail/pokemon_detail_states.dart';
+import 'package:poke_dapp_2/presentation/common/state_response_view.dart';
+import 'package:poke_dapp_2/presentation/home/pokemon/detail/bloc/pokemon_detail_bloc.dart';
+
+import 'bloc/pokemon_detail_state.dart';
 
 class PokemonDetailPage extends ConsumerStatefulWidget {
   const PokemonDetailPage({
@@ -71,6 +73,7 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
   void initState() {
     super.initState();
     WidgetsBinding.instance.addObserver(this);
+    _bloc.add(GetPokemonDetail());
   }
 
   @override
@@ -103,12 +106,12 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
 
   @override
   Widget build(BuildContext context) {
-    return StreamBuilder<PokemonDetailState>(
-      stream: _bloc.pokemonDetailStream,
-      builder: (context, snapshot) {
-        return AsyncSnapshotResponseView<Loading, Error, Success>(
-            snapshot: snapshot,
-            onTryAgainTap: () => _bloc.onTryAgainSink.add(null),
+    return BlocBuilder<PokemonDetailBloc, PokemonDetailState>(
+      bloc: _bloc,
+      builder: (context, state) {
+        return StateResponseView<Loading, Error, Success>(
+            state: state,
+            onTryAgainTap: () => _bloc.add(TryAgain()),
             errorWidgetBuilder: (context, error, onTryAgain) {
               return Scaffold(
                 backgroundColor: ref.colors.surfaceColor,

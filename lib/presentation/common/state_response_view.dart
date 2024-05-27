@@ -4,10 +4,10 @@ import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
 import 'package:poke_dapp_2/presentation/common/widgets/empty_state/general_empty_state.dart';
 
-class AsyncSnapshotResponseView<Loading, Error, Success>
+class StateResponseView<Loading, Error, Success>
     extends ConsumerWidget {
-  AsyncSnapshotResponseView({
-    required this.snapshot,
+  StateResponseView({
+    required this.state,
     required this.successWidgetBuilder,
     required this.onTryAgainTap,
     this.loadingWidgetBuilder,
@@ -17,7 +17,7 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
         assert(Error != dynamic),
         assert(Success != dynamic);
 
-  final AsyncSnapshot<dynamic> snapshot;
+  final dynamic state;
   final Widget Function(BuildContext context, Success success)
       successWidgetBuilder;
   final Widget Function(BuildContext context, Loading? loading)?
@@ -31,10 +31,9 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
 
   @override
   Widget build(BuildContext context, WidgetRef ref) {
-    final data = snapshot.data;
-    if (data == null || data is Loading) {
+    if (state == null || state is Loading) {
       if (loadingWidgetBuilder != null) {
-        return loadingWidgetBuilder!(context, data as Loading?);
+        return loadingWidgetBuilder!(context, state as Loading?);
       }
       return Center(
         child: CircularProgressIndicator(
@@ -43,20 +42,20 @@ class AsyncSnapshotResponseView<Loading, Error, Success>
       );
     }
 
-    if (data is Error) {
+    if (state is Error) {
       if (errorWidgetBuilder != null) {
-        return errorWidgetBuilder!(context, data, onTryAgainTap);
+        return errorWidgetBuilder!(context, state, onTryAgainTap);
       }
       return GeneralEmptyState(
         onTryAgain: onTryAgainTap,
-        errorType: data is GenericErrorView
-            ? data.type
+        errorType: state is GenericErrorView
+            ? state.type
             : GenericErrorViewType.unexpected,
       );
     }
 
-    if (data is Success) {
-      return successWidgetBuilder(context, data);
+    if (state is Success) {
+      return successWidgetBuilder(context, state);
     }
     throw UnknownStateTypeException();
   }
