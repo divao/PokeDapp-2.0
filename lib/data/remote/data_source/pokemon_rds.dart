@@ -38,7 +38,7 @@ class PokemonRDS {
       return GetPokemonAttributesResponseRM.fromJson(response.data!);
     } catch (e) {
       if (e is DioException) {
-        throw GetPokemonSummaryListException();
+        throw GetPokemonAttributesException();
       }
       rethrow;
     }
@@ -55,7 +55,7 @@ class PokemonRDS {
       return GetPokemonDescriptionResponseRM.fromJson(response.data!);
     } catch (e) {
       if (e is DioException) {
-        throw GetPokemonSummaryListException();
+        throw GetPokemonDescriptionException();
       }
       rethrow;
     }

@@ -13,3 +13,7 @@ class DatabaseNotStartedException implements PokeDappException {}
 class ConnectionTimedOutException implements PokeDappException {}
 
 class GetPokemonSummaryListException implements PokeDappException {}
+
+class GetPokemonAttributesException implements PokeDappException {}
+
+class GetPokemonDescriptionException implements PokeDappException {}

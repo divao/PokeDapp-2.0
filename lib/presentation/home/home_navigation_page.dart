@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 import 'package:poke_dapp_2/presentation/common/bottom_navigation/poke_dapp_navbar_item.dart';
 import 'package:poke_dapp_2/presentation/common/bottom_navigation/poke_dapp_navbar_scaffold.dart';
+import 'package:poke_dapp_2/presentation/common/pokedapp_view_keys.dart';
 
 class HomeNavigationPage extends ConsumerStatefulWidget {
   const HomeNavigationPage({
@@ -36,11 +36,13 @@ class _HomeNavigationPageState extends ConsumerState<HomeNavigationPage> {
       navigationShell: _navigationShell,
       navigationBarItems: [
         PokeDappNavBarItem(
+          key: PokeDappViewKeys.pokeDappBottomNavigationBarPokemon,
           svgIcon: ref.assets.pokeballIcon,
           title: s.bottomNavigationPokemonItem,
           navigatorKey: _pokemonNavigatorKey,
         ),
         PokeDappNavBarItem(
+          key: PokeDappViewKeys.pokeDappBottomNavigationBarPokedex,
           svgIcon: ref.assets.pokedexIcon,
           title: s.bottomNavigationPokedexItem,
           navigatorKey: _pokedexNavigatorKey,

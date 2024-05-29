@@ -22,7 +22,7 @@ class PokemonDetailBloc extends Bloc<PokemonDetailEvent, PokemonDetailState> {
     required int pokemonId,
   })  : _getPokemonDetailUC = getPokemonDetailUC,
         _pokemonId = pokemonId,
-        super(Initial()) {
+        super(Loading()) {
     on<GetPokemonDetail>(_fetchPokemonDetail);
     on<TryAgain>(_fetchPokemonDetail);
   }

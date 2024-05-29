@@ -6,6 +6,7 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
+import 'package:poke_dapp_2/presentation/common/pokedapp_view_keys.dart';
 import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
 import 'package:poke_dapp_2/presentation/common/widgets/empty_state/general_empty_state.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/detail/bloc/pokemon_detail_event.dart';
@@ -216,11 +217,13 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
                                   Text(
+                                    key: PokeDappViewKeys.pokemonDetailPagePokemonNumber,
                                     ref.s.pokemonNumber(pokemon.id),
                                     style: ref.textStyles.pokemonDetailNumber,
                                     textAlign: TextAlign.justify,
                                   ),
                                   Text(
+                                    key: PokeDappViewKeys.pokemonDetailPagePokemonDescription,
                                     pokemon.description,
                                     style:
                                         ref.textStyles.pokemonDetailDescription,
