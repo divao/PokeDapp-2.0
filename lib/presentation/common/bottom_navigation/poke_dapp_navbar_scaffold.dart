@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
 import 'package:poke_dapp_2/presentation/common/bottom_navigation/poke_dapp_navbar.dart';
 import 'package:poke_dapp_2/presentation/common/bottom_navigation/poke_dapp_navbar_item.dart';
+import 'package:poke_dapp_2/presentation/common/pokedapp_view_keys.dart';
 
 class PokeDappNavBarScaffold extends ConsumerStatefulWidget {
   const PokeDappNavBarScaffold({
@@ -37,6 +38,7 @@ class _PokeDappNavBarScaffoldState extends ConsumerState<PokeDappNavBarScaffold>
     return Scaffold(
       backgroundColor: colors.surfaceColor,
       bottomNavigationBar: PokeDappNavBar(
+        key: PokeDappViewKeys.pokeDappBottomNavigationBar,
         barItems: widget.navigationBarItems,
         onTap: _onTabSelected,
         currentIndex: _navigationShell.currentIndex,

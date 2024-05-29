@@ -19,7 +19,7 @@ class PokemonListBloc extends Bloc<PokemonListEvent, PokemonListState> {
   PokemonListBloc({
     required GetPokemonSummaryListUC getPokemonSummaryListUC,
   })  : _getPokemonSummaryListUC = getPokemonSummaryListUC,
-        super(Initial()) {
+        super(Loading()) {
     on<GetPokemonList>(_fetchPokemonList);
     on<TryAgain>(_fetchPokemonList);
   }

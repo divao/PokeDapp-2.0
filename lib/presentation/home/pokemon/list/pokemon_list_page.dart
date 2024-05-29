@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
+import 'package:poke_dapp_2/presentation/common/pokedapp_view_keys.dart';
 import 'package:poke_dapp_2/presentation/common/state_response_view.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/list/bloc/pokemon_list_bloc.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/list/bloc/pokemon_list_event.dart';
@@ -57,6 +58,7 @@ class _PokemonListPageState extends ConsumerState<PokemonListPage> {
                 successWidgetBuilder: (context, success) {
                   final pokemonList = success.pokemonList;
                   return GridView.builder(
+                    key: PokeDappViewKeys.pokemonListPageGridView,
                     gridDelegate:
                         const SliverGridDelegateWithFixedCrossAxisCount(
                       crossAxisCount: 3,

@@ -11,6 +11,7 @@
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/just_audio-0.9.38" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/audio_session-0.1.19" />
       <root url="file://$USER_HOME$/AppData/Local/Pub/Cache/hosted/pub.dev/just_audio_web-0.4.11" />
+      <root url="file://$PROJECT_DIR$/.fvm/flutter_sdk/packages/integration_test" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />
