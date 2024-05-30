@@ -33,9 +33,9 @@ class PokeDappDio extends DioForNative {
             (error) {
           if (error is DioException && error.error is SocketException) {
             throw NoConnectionException();
+          } else if (error is DioException && error.type == DioExceptionType.connectionTimeout) {
+            throw ConnectionTimedOutException();
           }
-          if (error is Exception) throw error;
-
           throw UnexpectedException();
         },
       );

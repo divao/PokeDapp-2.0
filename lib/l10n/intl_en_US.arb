@@ -1,0 +1,21 @@
+{
+  "@@locale": "en_US",
+  "appTitle": "PokéDapp",
+  "bottomNavigationPokemonItem": "Pokémon",
+  "bottomNavigationPokedexItem": "Pokédex",
+  "pokemonDetailTitle": "Pokémon Details",
+  "genericError": "Something went wrong.",
+  "timeoutError": "Internal server error.",
+  "noInternetError": "No internet connection.",
+  "tryAgain": "TRY AGAIN",
+  "pokemonNumber": "No. {pokemonId}",
+  "pokemonStatHp": "HP",
+  "pokemonStatAttack": "Attack",
+  "pokemonStatDefense": "Defense",
+  "pokemonStatSpecialAttack": "Sp. Atk",
+  "pokemonStatSpecialDefense": "Sp. Def",
+  "pokemonStatSpeed": "Speed",
+  "audioErrorTitle": "Error",
+  "audioErrorMessage": "An error occurred while loading the audio.",
+  "ok": "OK"
+}

@@ -79,6 +79,156 @@ class S {
       args: [],
     );
   }
+
+  /// `Pokémon Details`
+  String get pokemonDetailTitle {
+    return Intl.message(
+      'Pokémon Details',
+      name: 'pokemonDetailTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Something went wrong.`
+  String get genericError {
+    return Intl.message(
+      'Something went wrong.',
+      name: 'genericError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Internal server error.`
+  String get timeoutError {
+    return Intl.message(
+      'Internal server error.',
+      name: 'timeoutError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No internet connection.`
+  String get noInternetError {
+    return Intl.message(
+      'No internet connection.',
+      name: 'noInternetError',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `TRY AGAIN`
+  String get tryAgain {
+    return Intl.message(
+      'TRY AGAIN',
+      name: 'tryAgain',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `No. {pokemonId}`
+  String pokemonNumber(Object pokemonId) {
+    return Intl.message(
+      'No. $pokemonId',
+      name: 'pokemonNumber',
+      desc: '',
+      args: [pokemonId],
+    );
+  }
+
+  /// `HP`
+  String get pokemonStatHp {
+    return Intl.message(
+      'HP',
+      name: 'pokemonStatHp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Attack`
+  String get pokemonStatAttack {
+    return Intl.message(
+      'Attack',
+      name: 'pokemonStatAttack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Defense`
+  String get pokemonStatDefense {
+    return Intl.message(
+      'Defense',
+      name: 'pokemonStatDefense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sp. Atk`
+  String get pokemonStatSpecialAttack {
+    return Intl.message(
+      'Sp. Atk',
+      name: 'pokemonStatSpecialAttack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Sp. Def`
+  String get pokemonStatSpecialDefense {
+    return Intl.message(
+      'Sp. Def',
+      name: 'pokemonStatSpecialDefense',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Speed`
+  String get pokemonStatSpeed {
+    return Intl.message(
+      'Speed',
+      name: 'pokemonStatSpeed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `Error`
+  String get audioErrorTitle {
+    return Intl.message(
+      'Error',
+      name: 'audioErrorTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `An error occurred while loading the audio.`
+  String get audioErrorMessage {
+    return Intl.message(
+      'An error occurred while loading the audio.',
+      name: 'audioErrorMessage',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `OK`
+  String get ok {
+    return Intl.message(
+      'OK',
+      name: 'ok',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -86,7 +236,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
 
   List<Locale> get supportedLocales {
     return const <Locale>[
-      Locale.fromSubtags(languageCode: 'pt', countryCode: 'BR'),
+      Locale.fromSubtags(languageCode: 'en', countryCode: 'US'),
     ];
   }
 
