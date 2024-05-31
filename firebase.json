@@ -1,0 +1,1 @@
+{"flutter":{"platforms":{"android":{"default":{"projectId":"pokedapp-2","appId":"1:565500652600:android:c64cce1898b5f1d02d8acd","fileOutput":"android/app/google-services.json"}},"dart":{"lib/firebase_options.dart":{"projectId":"pokedapp-2","configurations":{"android":"1:565500652600:android:c64cce1898b5f1d02d8acd","ios":"1:565500652600:ios:50ecd57ecb0839242d8acd"}}}}}}

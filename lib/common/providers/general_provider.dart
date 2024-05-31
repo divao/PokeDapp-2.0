@@ -3,8 +3,11 @@ import 'package:domain/exceptions.dart';
 import 'package:domain/logger.dart';
 import 'package:domain/use_case/get_pokemon_summary_list_uc.dart';
 import 'package:domain/use_case/get_pokemon_detail_uc.dart';
+import 'package:firebase_analytics/firebase_analytics.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:isar/isar.dart';
+import 'package:poke_dapp_2/common/analytics_logger.dart';
+import 'package:poke_dapp_2/common/analytics_observer.dart';
 import 'package:poke_dapp_2/common/app_theme/base/app_theme.dart';
 import 'package:poke_dapp_2/common/app_theme/light/light_app_theme.dart';
 import 'package:poke_dapp_2/data/cache/data_source/pokemon_cds.dart';
@@ -18,6 +21,20 @@ final errorLoggerProvider = Provider<ErrorLogger>((ref) => Log().logError);
 final appThemeProvider = Provider<AppTheme>(
   (ref) => LightAppTheme(),
 );
+
+final _firebaseAnalyticsProvider =
+Provider<FirebaseAnalytics>((ref) => FirebaseAnalytics.instance);
+
+final analyticsLoggerProvider = Provider<AnalyticsLogger>((ref) {
+  final firebaseAnalytics =
+  ref.watch<FirebaseAnalytics>(_firebaseAnalyticsProvider);
+  return AnalyticsLogger(logger: firebaseAnalytics);
+});
+
+final analyticsObserverProvider = Provider<AnalyticsObserver>((ref) {
+  final analyticsLogger = ref.watch(analyticsLoggerProvider);
+  return AnalyticsObserver(logger: analyticsLogger);
+});
 
 final isarProvider = Provider<Isar>(
   (_) => throw DatabaseNotStartedException(),

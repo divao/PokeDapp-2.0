@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "565500652600",
+    "project_id": "pokedapp-2",
+    "storage_bucket": "pokedapp-2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:565500652600:android:c64cce1898b5f1d02d8acd",
+        "android_client_info": {
+          "package_name": "com.divao.poke_dapp_2"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDjiRBNLpNFF8YfRlXs1k4LQJr073GyLMg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
