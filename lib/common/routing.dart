@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:go_router/go_router.dart';
+import 'package:poke_dapp_2/common/providers/general_provider.dart';
 import 'package:poke_dapp_2/presentation/home/home_navigation_page.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/detail/pokemon_detail_page.dart';
 import 'package:poke_dapp_2/presentation/home/pokemon/list/pokemon_list_page.dart';
@@ -21,9 +22,13 @@ final _pokedexNavigatorKey = GlobalKey<NavigatorState>();
 
 final goRouterProvider = Provider.autoDispose<GoRouter>(
   (ref) {
+    final analyticsObserver = ref.watch(analyticsObserverProvider);
     return GoRouter(
       navigatorKey: _goRouterNavigatorKey,
       initialLocation: _pokemonListPath,
+      observers: [
+        analyticsObserver,
+      ],
       routes: [
         StatefulShellRoute.indexedStack(
           branches: [

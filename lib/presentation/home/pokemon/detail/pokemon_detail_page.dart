@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:just_audio/just_audio.dart';
+import 'package:poke_dapp_2/common/analytics_logger.dart';
 import 'package:poke_dapp_2/common/app_theme/base/theme_extension.dart';
+import 'package:poke_dapp_2/common/providers/general_provider.dart';
 import 'package:poke_dapp_2/presentation/common/pokedapp_view_keys.dart';
 import 'package:poke_dapp_2/presentation/common/utils/generic_error_view.dart';
 import 'package:poke_dapp_2/presentation/common/widgets/empty_state/general_empty_state.dart';
@@ -21,6 +23,7 @@ class PokemonDetailPage extends ConsumerStatefulWidget {
   const PokemonDetailPage({
     required this.bloc,
     required this.pokemonId,
+    this.analyticsLogger,
     super.key,
   });
 
@@ -30,12 +33,14 @@ class PokemonDetailPage extends ConsumerStatefulWidget {
       Consumer(
         builder: (_, ref, __) {
           final bloc = ref.watch(pokemonDetailBlocProvider(pokemonId));
-          return PokemonDetailPage(bloc: bloc, pokemonId: pokemonId);
+          final analytics = ref.watch(analyticsLoggerProvider);
+          return PokemonDetailPage(bloc: bloc, pokemonId: pokemonId, analyticsLogger: analytics);
         },
       );
 
   final int pokemonId;
   final PokemonDetailBloc bloc;
+  final AnalyticsLogger? analyticsLogger;
 
   @override
   ConsumerState<ConsumerStatefulWidget> createState() =>
@@ -45,6 +50,7 @@ class PokemonDetailPage extends ConsumerStatefulWidget {
 class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
     with WidgetsBindingObserver {
   PokemonDetailBloc get _bloc => widget.bloc;
+  AnalyticsLogger? get _analyticsLogger => widget.analyticsLogger;
 
   final _player = AudioPlayer();
 
@@ -60,6 +66,7 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
     try {
       await _player.setAudioSource(AudioSource.uri(Uri.parse(audioUrl)));
       Future.delayed(Duration.zero, _player.play);
+      _analyticsLogger?.logPokemonCryPlayed(widget.pokemonId);
     } catch (e) {
       Future.delayed(Duration.zero, _player.stop);
       await _showAudioErrorDialog();
@@ -75,6 +82,7 @@ class _PokemonDetailPageState extends ConsumerState<PokemonDetailPage>
     super.initState();
     WidgetsBinding.instance.addObserver(this);
     _bloc.add(GetPokemonDetail());
+    _analyticsLogger?.logPokemonDetailViewed(widget.pokemonId);
   }
 
   @override

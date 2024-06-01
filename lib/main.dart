@@ -1,5 +1,9 @@
 import 'dart:async';
 
+import 'package:firebase_analytics/firebase_analytics.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_crashlytics/firebase_crashlytics.dart';
+import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
@@ -13,6 +17,7 @@ import 'package:poke_dapp_2/data/cache/model/pokemon_summary_cm.dart';
 
 import 'common/providers/general_provider.dart';
 import 'common/routing.dart';
+import 'firebase_options.dart';
 import 'generated/l10n.dart';
 
 class Log {
@@ -44,6 +49,19 @@ Future<void> main() async {
         ],
         directory: dir.path,
       );
+
+      await Firebase.initializeApp(
+        options: DefaultFirebaseOptions.currentPlatform,
+      );
+
+      await FirebaseCrashlytics.instance
+          .setCrashlyticsCollectionEnabled(!kDebugMode);
+
+      if (!kDebugMode) {
+        FlutterError.onError = FirebaseCrashlytics.instance.recordFlutterError;
+      }
+
+      await FirebaseAnalytics.instance.logAppOpen();
 
       await SystemChrome.setPreferredOrientations(
         <DeviceOrientation>[
