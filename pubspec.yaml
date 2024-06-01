@@ -31,6 +31,9 @@ dependencies:
   just_audio: ^0.9.38
   flutter_bloc: ^8.1.5
   bloc: ^8.1.4
+  firebase_analytics: ^10.10.7
+  firebase_core: ^2.32.0
+  firebase_crashlytics: ^3.5.7
 
 dev_dependencies:
   flutter_test:

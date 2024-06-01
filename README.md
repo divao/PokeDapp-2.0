@@ -7,7 +7,8 @@ O PokéDapp é um app simples mas que implementa muitas boas práticas da progra
  - Injeção de dependências com [Riverpod](https://pub.dev/packages/riverpod);
  - Consumo de API Rest com [Dio](https://pub.dev/packages/dio);
  - Implementação de cache com [Isar Database](https://isar.dev/);
- - Testes unitários e de integração com [Mockito](https://pub.dev/packages/mockito).
+ - Testes unitários e de integração com [Mockito](https://pub.dev/packages/mockito);
+ - Análise de uso com [Firebase Analytics](https://firebase.google.com/docs/analytics/get-started?platform=flutter) e [Crashlytics](https://firebase.google.com/docs/crashlytics/get-started?platform=flutter).
 
 ### 🇺🇸 An evolved **and updated** Flutter app.
 PokéDapp is a simple app that implements many good mobile programming practices, including:
@@ -16,4 +17,5 @@ PokéDapp is a simple app that implements many good mobile programming practices
  - Dependency injection with [Riverpod](https://pub.dev/packages/riverpod);
  - Rest API consuming with [Dio](https://pub.dev/packages/dio);
  - Cache implementation with [Isar Database](https://isar.dev/);
- - Unit and integration tests with [Mockito](https://pub.dev/packages/mockito).
+ - Unit and integration tests with [Mockito](https://pub.dev/packages/mockito);
+ - Usage analysis with [Firebase Analytics](https://firebase.google.com/docs/analytics/get-started?platform=flutter) and [Crashlytics](https://firebase.google.com/docs/crashlytics/get-started?platform=flutter).
